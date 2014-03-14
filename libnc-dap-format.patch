@@ -1,0 +1,116 @@
+--- libnc-dap-3.7.4/ncdump/vardata.c.orig	2006-11-02 16:22:25.000000000 +0100
++++ libnc-dap-3.7.4/ncdump/vardata.c	2014-03-14 19:14:50.989826660 +0100
+@@ -488,8 +488,7 @@
+     for (iel = 0; iel < len-1; iel++) {
+ 	printbval(sout, fmt, vp, *vals++);
+ 	if (fsp->full_data_cmnts) {
+-	    Printf(sout);
+-	    Printf(",");
++	    Printf("%s,", sout);
+ 	    annotate (vp, fsp, cor, iel);
+ 	} else {
+ 	    (void) strcat(sout, ", ");
+@@ -498,7 +497,7 @@
+     }
+     printbval(sout, fmt, vp, *vals++);
+     if (fsp->full_data_cmnts) {
+-	Printf(sout);
++	Printf("%s", sout);
+ 	lastdelim (more, lastrow);
+ 	annotate (vp, fsp, cor, iel);
+     } else {
+@@ -536,8 +535,7 @@
+     for (iel = 0; iel < len-1; iel++) {
+ 	printsval(sout, fmt, vp, *vals++);
+ 	if (fsp->full_data_cmnts) {
+-	    Printf(sout);
+-	    Printf(",");
++	    Printf("%s,", sout);
+ 	    annotate (vp, fsp, cor, iel);
+ 	} else {
+ 	    (void) strcat(sout, ", ");
+@@ -546,7 +544,7 @@
+     }
+     printsval(sout, fmt, vp, *vals++);
+     if (fsp->full_data_cmnts) {
+-	Printf(sout);
++	Printf("%s", sout);
+ 	lastdelim (more, lastrow);
+ 	annotate (vp, fsp, cor, iel);
+     } else {
+@@ -586,8 +584,7 @@
+     for (iel = 0; iel < len-1; iel++) {
+ 	printival(sout, fmt, vp, *vals++);
+ 	if (fsp->full_data_cmnts) {
+-	    Printf(sout);
+-	    Printf(",");
++	    Printf("%s,", sout);
+ 	    annotate (vp, fsp, cor, iel);
+ 	} else {
+ 	    (void) strcat(sout, ", ");
+@@ -596,7 +593,7 @@
+     }
+     printival(sout, fmt, vp, *vals++);
+     if (fsp->full_data_cmnts) {
+-	Printf(sout);
++	Printf("%s", sout);
+ 	lastdelim (more, lastrow);
+ 	annotate (vp, fsp, cor, iel);
+     } else {
+@@ -634,8 +631,7 @@
+     for (iel = 0; iel < len-1; iel++) {
+ 	printfval(sout, fmt, vp, *vals++);
+ 	if (fsp->full_data_cmnts) {
+-	    Printf(sout);
+-	    Printf(",");
++	    Printf("%s,", sout);
+ 	    annotate (vp, fsp, cor, iel);
+ 	} else {
+ 	    (void) strcat(sout, ", ");
+@@ -644,7 +640,7 @@
+     }
+     printfval(sout, fmt, vp, *vals++);
+     if (fsp->full_data_cmnts) {
+-	Printf(sout);
++	Printf("%s", sout);
+ 	lastdelim (more, lastrow);
+ 	annotate (vp, fsp, cor, iel);
+     } else {
+@@ -682,8 +678,7 @@
+     for (iel = 0; iel < len-1; iel++) {
+ 	printdval(sout, fmt, vp, *vals++);
+ 	if (fsp->full_data_cmnts) {
+-	    Printf(sout);
+-	    Printf(",");
++	    Printf("%s,", sout);
+ 	    annotate (vp, fsp, cor, iel);
+ 	} else {
+ 	    (void) strcat(sout, ", ");
+@@ -692,7 +687,7 @@
+     }
+     printdval(sout, fmt, vp, *vals++);
+     if (fsp->full_data_cmnts) {
+-	Printf(sout);
++	Printf("%s", sout);
+ 	lastdelim (more, lastrow);
+ 	annotate (vp, fsp, cor, iel);
+     } else {
+@@ -719,8 +714,7 @@
+    for (iel = 0; iel < len-1; iel++) {
+       print_any_val(sout, fmt, vp, type, vals);
+       if (fsp->full_data_cmnts) {
+-	 Printf(sout);
+-	 Printf(",");
++	 Printf("%s,", sout);
+ 	 annotate (vp, fsp, cor, iel);
+       } else {
+ 	 (void) strcat(sout, ", ");
+@@ -730,7 +724,7 @@
+    print_any_val(sout, fmt, vp, type, vals);
+ 
+    if (fsp->full_data_cmnts) {
+-      Printf(sout);
++      Printf("%s", sout);
+       lastdelim (more, lastrow);
+       annotate (vp, fsp, cor, iel);
+    } else {

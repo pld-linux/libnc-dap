@@ -1,0 +1,31 @@
+--- libnc-dap-3.7.4/NCConnect.cc.orig	2008-09-18 01:00:57.000000000 +0200
++++ libnc-dap-3.7.4/NCConnect.cc	2014-03-14 17:03:17.820157904 +0100
+@@ -109,7 +109,7 @@ static nc_type get_attr_nc_type(AttrType
+     
+     @param name A filename or URL. */
+ NCConnect::NCConnect(const string & name, ClientParams * cp)
+-    :AISConnect(name), d_client_params(cp), d_global_attributes(0),
++    :Connect(name), d_client_params(cp), d_global_attributes(0),
+     d_constrained_dds(0), d_translated_dds(0), d_factory(0),
+     d_ncid(-1), d_nvars(-1), d_recdim(-1), d_ndims(0)
+       // Note the trick above where d_factory is initialized to null and null
+--- libnc-dap-3.7.4/NCConnect.h.orig	2008-02-02 22:31:13.000000000 +0100
++++ libnc-dap-3.7.4/NCConnect.h	2014-03-14 16:55:57.696843041 +0100
+@@ -37,7 +37,7 @@
+ #ifndef _ncconnect_h
+ #define _ncconnect_h 1
+ 
+-#include "AISConnect.h"		// Changed to AISConnect. 03/11/03 jhrg
++#include "Connect.h"
+ #include "NCTypeFactory.h"
+ #include "ClientParams.h"
+ #include "nc_util.h"
+@@ -58,7 +58,7 @@ using namespace libdap ;
+     @todo Update; remove deprecated Connect methods.
+ 
+     @author Reza Nekovei, James Gallagher */
+-class NCConnect: public AISConnect {
++class NCConnect: public Connect {
+ private:
+     ClientParams *d_client_params;
+     AttrTable *d_global_attributes;
