@@ -6,7 +6,7 @@ Summary:	The NetCDF interface to DAP-2 from OPeNDAP
 Summary(pl.UTF-8):	Interfejs NetCDF do DAP-2 z OPeNDAP
 Name:		libnc-dap
 Version:	3.7.4
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
